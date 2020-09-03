@@ -36109,6 +36109,7 @@ __webpack_require__.d(__webpack_exports__, "FabricShadow", function() { return /
 __webpack_require__.d(__webpack_exports__, "FabricSVGFromURL", function() { return /* reexport */ FabricSVGFromURL; });
 __webpack_require__.d(__webpack_exports__, "FabricText", function() { return /* reexport */ FabricText; });
 __webpack_require__.d(__webpack_exports__, "FabricTriangle", function() { return /* reexport */ FabricTriangle; });
+__webpack_require__.d(__webpack_exports__, "FabricTextBox", function() { return /* reexport */ FabricTextBox; });
 
 // CONCATENATED MODULE: ./node_modules/@vue/cli-service/lib/commands/build/setPublicPath.js
 // This file is imported into lib/wc client bundles.
@@ -36134,24 +36135,24 @@ if (typeof window !== 'undefined') {
 // Indicate to webpack that this file can be concatenated
 /* harmony default export */ var setPublicPath = (null);
 
-// EXTERNAL MODULE: ./node_modules/core-js/modules/es.array.for-each.js
-var es_array_for_each = __webpack_require__("4160");
-
-// EXTERNAL MODULE: ./node_modules/core-js/modules/es.object.keys.js
-var es_object_keys = __webpack_require__("b64b");
-
-// EXTERNAL MODULE: ./node_modules/core-js/modules/web.dom-collections.for-each.js
-var web_dom_collections_for_each = __webpack_require__("159b");
-
 // EXTERNAL MODULE: external {"commonjs":"vue","commonjs2":"vue","root":"Vue"}
 var external_commonjs_vue_commonjs2_vue_root_Vue_ = __webpack_require__("8bbf");
 var external_commonjs_vue_commonjs2_vue_root_Vue_default = /*#__PURE__*/__webpack_require__.n(external_commonjs_vue_commonjs2_vue_root_Vue_);
+
+// EXTERNAL MODULE: ./node_modules/core-js/modules/es.array.for-each.js
+var es_array_for_each = __webpack_require__("4160");
 
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es.array.index-of.js
 var es_array_index_of = __webpack_require__("c975");
 
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es.number.constructor.js
 var es_number_constructor = __webpack_require__("a9e3");
+
+// EXTERNAL MODULE: ./node_modules/core-js/modules/es.object.keys.js
+var es_object_keys = __webpack_require__("b64b");
+
+// EXTERNAL MODULE: ./node_modules/core-js/modules/web.dom-collections.for-each.js
+var web_dom_collections_for_each = __webpack_require__("159b");
 
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es.symbol.js
 var es_symbol = __webpack_require__("a4d3");
@@ -39344,6 +39345,106 @@ var FabricText_component = normalizeComponent(
 )
 
 /* harmony default export */ var FabricText = (FabricText_component.exports);
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--12-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/FabricTextBox.vue?vue&type=script&lang=js&
+
+
+
+/* harmony default export */ var FabricTextBoxvue_type_script_lang_js_ = ({
+  name: "fabric-text-box",
+  mixins: [fabricObject],
+  props: {
+    top: {
+      type: Number,
+      default: 40
+    },
+    left: {
+      type: Number,
+      default: 0
+    },
+    fontFamily: {
+      type: String,
+      default: "Times New Roman"
+    },
+    fontSize: {
+      type: Number,
+      default: 40
+    },
+    fontStyle: {
+      type: String,
+      default: "normal"
+    },
+    fontWeight: {
+      type: [Number, String],
+      default: "normal"
+    },
+    text: {
+      type: String,
+      required: true
+    },
+    textAlign: {
+      type: String,
+      default: "left"
+    },
+    textBackgroundColor: String
+  },
+  data: function data() {
+    return {
+      textObj: null,
+      type: "text"
+    };
+  },
+  render: function render(h) {
+    return this.$slots.default ? h("div", this.$slots.default) : undefined;
+  },
+  watch: {
+    parentItem: {
+      handler: function handler(newValue) {
+        if (newValue) {
+          //Parent is created
+          this.textObj = new this.fabric.Textbox(this.text, _objectSpread2({}, this.definedProps));
+
+          if (this.parentType == "group") {
+            if (this.parentItem.addWithoutUpdate) {
+              this.parentItem.add(this.textObj);
+            } else {
+              this.parentItem.addWithUpdate(this.textObj);
+            }
+          } else {
+            this.canvas.add(this.textObj);
+          }
+
+          this.createEvents();
+          this.createWatchers();
+        }
+      },
+      immediate: true
+    }
+  },
+  methods: {},
+  beforeDestroy: function beforeDestroy() {}
+});
+// CONCATENATED MODULE: ./src/components/FabricTextBox.vue?vue&type=script&lang=js&
+ /* harmony default export */ var components_FabricTextBoxvue_type_script_lang_js_ = (FabricTextBoxvue_type_script_lang_js_); 
+// CONCATENATED MODULE: ./src/components/FabricTextBox.vue
+var FabricTextBox_render, FabricTextBox_staticRenderFns
+
+
+
+
+/* normalize component */
+
+var FabricTextBox_component = normalizeComponent(
+  components_FabricTextBoxvue_type_script_lang_js_,
+  FabricTextBox_render,
+  FabricTextBox_staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* harmony default export */ var FabricTextBox = (FabricTextBox_component.exports);
 // CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--12-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/FabricTriangle.vue?vue&type=script&lang=js&
 
 
@@ -39450,8 +39551,6 @@ var FabricTriangle_component = normalizeComponent(
 
 
 
-
-
 var VueFabricWrapper = {
   FabricAnimation: FabricAnimation,
   FabricBackgroundImage: FabricBackgroundImage,
@@ -39472,7 +39571,8 @@ var VueFabricWrapper = {
   FabricShadow: FabricShadow,
   FabricSVGFromURL: FabricSVGFromURL,
   FabricText: FabricText,
-  FabricTriangle: FabricTriangle
+  FabricTriangle: FabricTriangle,
+  FabricTextBox: FabricTextBox
 };
 Object.keys(VueFabricWrapper).forEach(function (name) {
   external_commonjs_vue_commonjs2_vue_root_Vue_default.a.component(name, VueFabricWrapper[name]);
