@@ -42,6 +42,10 @@
         </fabric-polygon>
         <fabric-text :id="342104" :text="'hello stick man'"></fabric-text>
       </fabric-group>
+        <fabric-text-box
+            :id="'text'"
+            text="fsdghfdg"
+        ></fabric-text-box>
       <fabric-polyline :id="342102"></fabric-polyline>
       <fabric-svg-from-url :id="'ttyuud'"></fabric-svg-from-url>
     </fabric-canvas>
@@ -89,6 +93,7 @@ import FabricLine from "./components/FabricLine";
 import FabricPolygon from "./components/FabricPolygon";
 import FabricPolyline from "./components/FabricPolyine";
 import FabricText from "./components/FabricText";
+import FabricTextBox from "./components/FabricTextBox";
 import FabricSvgFromUrl from "./components/FabricSVGFromURL";
 import FabricTriangle from "./components/FabricTriangle";
 import FabricRectangle from "./components/FabricRectangle";
@@ -111,7 +116,8 @@ export default {
     FabricSvgFromUrl,
     FabricImageFromUrl,
     FabricText,
-    FabricShadow
+    FabricShadow,
+      FabricTextBox
   },
   data() {
     return {
