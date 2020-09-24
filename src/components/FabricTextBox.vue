@@ -36,6 +36,14 @@ export default {
       type: String,
       default: "left"
     },
+    lineHeight: {
+      type: Number,
+      default: 1.16
+    },
+    charSpacing: {
+      type: Number,
+      default: 0
+    },
     textBackgroundColor: String
   },
   data() {
@@ -55,7 +63,7 @@ export default {
           this.textObj = new this.fabric.Textbox(this.text, {
             ...this.definedProps
           });
-          if (this.parentType == "group") {
+          if (this.parentType === "group") {
             if (this.parentItem.addWithoutUpdate) {
               this.parentItem.add(this.textObj);
             } else {
