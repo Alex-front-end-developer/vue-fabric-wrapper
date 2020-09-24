@@ -39346,7 +39346,11 @@ var FabricText_component = normalizeComponent(
 
 /* harmony default export */ var FabricText = (FabricText_component.exports);
 // CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--12-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/FabricTextBox.vue?vue&type=script&lang=js&
+function FabricTextBoxvue_type_script_lang_js_ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { FabricTextBoxvue_type_script_lang_js_ownKeys(Object(source), true).forEach(function (key) { FabricTextBoxvue_type_script_lang_js_defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { FabricTextBoxvue_type_script_lang_js_ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function FabricTextBoxvue_type_script_lang_js_defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 
 /* harmony default export */ var FabricTextBoxvue_type_script_lang_js_ = ({
@@ -39385,6 +39389,14 @@ var FabricText_component = normalizeComponent(
       type: String,
       default: "left"
     },
+    lineHeight: {
+      type: Number,
+      default: 1.16
+    },
+    charSpacing: {
+      type: Number,
+      default: 0
+    },
     textBackgroundColor: String
   },
   data: function data() {
@@ -39401,7 +39413,7 @@ var FabricText_component = normalizeComponent(
       handler: function handler(newValue) {
         if (newValue) {
           //Parent is created
-          this.textObj = new this.fabric.Textbox(this.text, _objectSpread2({}, this.definedProps));
+          this.textObj = new this.fabric.Textbox(this.text, _objectSpread({}, this.definedProps));
 
           if (this.parentType == "group") {
             if (this.parentItem.addWithoutUpdate) {
