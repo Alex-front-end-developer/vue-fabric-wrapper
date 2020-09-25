@@ -44,6 +44,10 @@ export default {
       type: Number,
       default: 0
     },
+    linethrough: {
+      type: Boolean,
+      default: false
+    },
     textBackgroundColor: String
   },
   data() {

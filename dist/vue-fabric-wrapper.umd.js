@@ -36462,7 +36462,7 @@ var OBJECT_EVENTS = ["added", "removed", "selected", "deselected", "modified", "
 
 var EMIT_PROPS = ["angle", "height", "left", "originX", "originY", "scaleX", "scaleY", "skewX", "skewY", "top", "width"]; //Props that require a render once changed
 
-var REQUIRE_RENDER = ["angle", "height", "left", "originX", "originY", "scaleX", "scaleY", "skewX", "skewY", "top", "width", "visible", "fontSize", "lineHeight", "charSpacing", "textAlign"]; //Monitor the fabric Object (item) and emit an update to allow .sync usage
+var REQUIRE_RENDER = ["angle", "height", "left", "originX", "originY", "scaleX", "scaleY", "skewX", "skewY", "top", "width", "visible", "fontSize", "lineHeight", "charSpacing", "textAlign", "linethrough"]; //Monitor the fabric Object (item) and emit an update to allow .sync usage
 
 var watchEmitProp = function watchEmitProp(key, deep) {
   return {
@@ -39405,6 +39405,10 @@ function FabricTextBoxvue_type_script_lang_js_defineProperty(obj, key, value) { 
     charSpacing: {
       type: Number,
       default: 0
+    },
+    linethrough: {
+      type: Boolean,
+      default: false
     },
     textBackgroundColor: String
   },

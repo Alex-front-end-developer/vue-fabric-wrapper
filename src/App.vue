@@ -117,7 +117,7 @@ export default {
     FabricImageFromUrl,
     FabricText,
     FabricShadow,
-      FabricTextBox
+    FabricTextBox
   },
   data() {
     return {
