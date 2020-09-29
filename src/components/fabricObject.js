@@ -57,7 +57,9 @@ const REQUIRE_RENDER = [
   "lineHeight",
   "charSpacing",
   "textAlign",
-  "linethrough"
+  "linethrough",
+  "underline",
+  "overline"
 ];
 
 //Monitor the fabric Object (item) and emit an update to allow .sync usage

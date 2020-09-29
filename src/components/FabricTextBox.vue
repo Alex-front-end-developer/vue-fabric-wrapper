@@ -48,6 +48,14 @@ export default {
       type: Boolean,
       default: false
     },
+    underline: {
+      type: Boolean,
+      default: false
+    },
+    overline: {
+      type: Boolean,
+      default: false
+    },
     textBackgroundColor: String
   },
   data() {
