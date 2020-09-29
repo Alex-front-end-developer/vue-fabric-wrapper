@@ -36460,9 +36460,9 @@ function fabricObject_defineProperty(obj, key, value) { if (key in obj) { Object
 
 var OBJECT_EVENTS = ["added", "removed", "selected", "deselected", "modified", "moved", "scaled", "rotated", "skewed", "rotating", "scaling", "moving", "skewing", "mousedown", "mouseup", "mouseover", "mouseout", "mousewheel", "mousedblclick", "dragover", "dragenter", "dragleave", "drop"]; //Props to change via interaction and need to be emitted for prop.sync usage
 
-var EMIT_PROPS = ["angle", "height", "left", "originX", "originY", "scaleX", "scaleY", "skewX", "skewY", "top", "width"]; //Props that require a render once changed
+var EMIT_PROPS = ["angle", "height", "left", "originX", "originY", "scaleX", "scaleY", "skewX", "skewY", "top", "width", "text"]; //Props that require a render once changed
 
-var REQUIRE_RENDER = ["angle", "height", "left", "originX", "originY", "scaleX", "scaleY", "skewX", "skewY", "top", "width", "visible", "fontSize", "lineHeight", "charSpacing", "textAlign", "linethrough", "underline", "overline"]; //Monitor the fabric Object (item) and emit an update to allow .sync usage
+var REQUIRE_RENDER = ["angle", "height", "left", "originX", "originY", "scaleX", "scaleY", "skewX", "skewY", "top", "width", "visible", "fontSize", "lineHeight", "charSpacing", "textAlign", "linethrough", "underline", "overline", "text"]; //Monitor the fabric Object (item) and emit an update to allow .sync usage
 
 var watchEmitProp = function watchEmitProp(key, deep) {
   return {

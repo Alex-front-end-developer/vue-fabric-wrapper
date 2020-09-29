@@ -36,7 +36,8 @@ const EMIT_PROPS = [
   "skewX",
   "skewY",
   "top",
-  "width"
+  "width",
+  "text"
 ];
 
 //Props that require a render once changed
@@ -59,7 +60,8 @@ const REQUIRE_RENDER = [
   "textAlign",
   "linethrough",
   "underline",
-  "overline"
+  "overline",
+  "text"
 ];
 
 //Monitor the fabric Object (item) and emit an update to allow .sync usage
