@@ -61,7 +61,8 @@ const REQUIRE_RENDER = [
   "linethrough",
   "underline",
   "overline",
-  "text"
+  "text",
+  "textTransform"
 ];
 
 //Monitor the fabric Object (item) and emit an update to allow .sync usage

@@ -9,6 +9,30 @@
     <line-grid />
     <h2>Dot Grid</h2>
     <dot-grid />
+    {{ text }}
+    {{ textOrigin }}
+    <div class="item">
+      <label>
+        <input type="radio" value="none" v-model="textTransform" />
+        none
+      </label>
+      <label>
+        <input type="radio" value="uppercase" v-model="textTransform" />
+        uppercase
+      </label>
+      <label>
+        <input type="radio" value="capitalize" v-model="textTransform" />
+        capitalize
+      </label>
+      <label>
+        <input type="radio" value="lowercase" v-model="textTransform" />
+        lowercase
+      </label>
+      <label>
+        <input type="checkbox" v-model="linethrough" />
+        linethrough
+      </label>
+    </div>
     <fabric-canvas
       :id="'events'"
       :height="400"
@@ -42,10 +66,17 @@
         </fabric-polygon>
         <fabric-text :id="342104" :text="'hello stick man'"></fabric-text>
       </fabric-group>
-        <fabric-text-box
-            :id="'text'"
-            text="fsdghfdg"
-        ></fabric-text-box>
+
+      <fabric-text-box
+        :id="'text'"
+        :text.sync="text"
+        :textOriginal.sync="textOriginal"
+        :linethrough="linethrough"
+        :textTransform="textTransform"
+        :top="200"
+        :left="200"
+      ></fabric-text-box>
+
       <fabric-polyline :id="342102"></fabric-polyline>
       <fabric-svg-from-url :id="'ttyuud'"></fabric-svg-from-url>
     </fabric-canvas>
@@ -132,7 +163,11 @@ export default {
       imgHeight: 1,
       imgWidth: 1,
       overImgHeight: 1,
-      overImgWidth: 1
+      overImgWidth: 1,
+      text: "test TextBox flags",
+      textOriginal: "test TextBox flags",
+      textTransform: "none",
+      linethrough: false
     };
   },
   methods: {
