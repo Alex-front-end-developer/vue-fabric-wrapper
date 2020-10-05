@@ -10,7 +10,7 @@
     <h2>Dot Grid</h2>
     <dot-grid />
     {{ text }}
-    {{ textOrigin }}
+    {{ textOriginal }}
     <div class="item">
       <label>
         <input type="radio" value="none" v-model="textTransform" />

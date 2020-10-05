@@ -47,6 +47,7 @@ const REQUIRE_RENDER = [
   "left",
   "originX",
   "originY",
+  "opacity",
   "scaleX",
   "scaleY",
   "skewX",
