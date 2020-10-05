@@ -10,7 +10,7 @@
 		"canvas",
 		"components"
 	],
-	"version": "0.3.72",
+	"version": "0.3.73",
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/bensladden/vue-fabric-wrapper.git"
