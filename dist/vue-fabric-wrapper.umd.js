@@ -37328,7 +37328,7 @@ var OBJECT_EVENTS = ["added", "removed", "selected", "deselected", "modified", "
 
 var EMIT_PROPS = ["angle", "height", "left", "originX", "originY", "scaleX", "scaleY", "skewX", "skewY", "top", "width", "text"]; //Props that require a render once changed
 
-var REQUIRE_RENDER = ["angle", "height", "left", "originX", "originY", "opacity", "scaleX", "scaleY", "skewX", "skewY", "top", "width", "visible", "fontSize", "lineHeight", "charSpacing", "textAlign", "linethrough", "underline", "overline", "text", "textTransform"]; //Monitor the fabric Object (item) and emit an update to allow .sync usage
+var REQUIRE_RENDER = ["angle", "height", "left", "originX", "originY", "opacity", "scaleX", "scaleY", "skewX", "skewY", "top", "width", "visible", "fontSize", "lineHeight", "charSpacing", "textAlign", "linethrough", "underline", "overline", "text", "textTransform", "fill"]; //Monitor the fabric Object (item) and emit an update to allow .sync usage
 
 var watchEmitProp = function watchEmitProp(key, deep) {
   return {
