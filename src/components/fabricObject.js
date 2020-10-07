@@ -66,7 +66,8 @@ const REQUIRE_RENDER = [
   "textTransform",
   "fill",
   "stroke",
-  "strokeWidth"
+  "strokeWidth",
+  "strokeDashArray"
 ];
 
 //Monitor the fabric Object (item) and emit an update to allow .sync usage
