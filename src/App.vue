@@ -9,30 +9,6 @@
     <line-grid />
     <h2>Dot Grid</h2>
     <dot-grid />
-    {{ text }}
-    {{ textOriginal }}
-    <div class="item">
-      <label>
-        <input type="radio" value="none" v-model="textTransform" />
-        none
-      </label>
-      <label>
-        <input type="radio" value="uppercase" v-model="textTransform" />
-        uppercase
-      </label>
-      <label>
-        <input type="radio" value="capitalize" v-model="textTransform" />
-        capitalize
-      </label>
-      <label>
-        <input type="radio" value="lowercase" v-model="textTransform" />
-        lowercase
-      </label>
-      <label>
-        <input type="checkbox" v-model="linethrough" />
-        linethrough
-      </label>
-    </div>
     <fabric-canvas
       :id="'events'"
       :height="400"
@@ -80,9 +56,34 @@
       <fabric-polyline :id="342102"></fabric-polyline>
       <fabric-svg-from-url :id="'ttyuud'"></fabric-svg-from-url>
     </fabric-canvas>
+    {{ text }}
+    {{ textOriginal }}
+    <div class="item">
+      <label>
+        <input type="radio" value="none" v-model="textTransform" />
+        none
+      </label>
+      <label>
+        <input type="radio" value="uppercase" v-model="textTransform" />
+        uppercase
+      </label>
+      <label>
+        <input type="radio" value="capitalize" v-model="textTransform" />
+        capitalize
+      </label>
+      <label>
+        <input type="radio" value="lowercase" v-model="textTransform" />
+        lowercase
+      </label>
+      <label>
+        <input type="checkbox" v-model="linethrough" />
+        linethrough
+      </label>
+    </div>
     <div id="drag1" @dragstart="dragStart" class="draggable" draggable></div>
     {{ canvas }}
-    <button @click="setText">image</button>{{ image }}
+    <button @click="setText">image</button>
+    {{ image }}
     <fabric-canvas :id="'overlay'" :height="400" :width="400">
       <fabric-svg-from-url :id="'ttyuud' + newId"></fabric-svg-from-url>
       <fabric-overlay-image
@@ -224,6 +225,7 @@ export default {
   color: #2c3e50;
   margin-top: 60px;
 }
+
 .draggable {
   display: inline-block;
   width: 100px;

@@ -11,9 +11,22 @@
         :gridHeight.sync="gridHeight"
         :gridWidth.sync="gridWidth"
       ></fabric-dot-grid>
-      <fabric-rectangle :id="'rectGridTesting2'"></fabric-rectangle>
+      <fabric-rectangle
+        :id="'rectGridTesting2'"
+        :rx="borderRadius"
+        :ry="borderRadius"
+      ></fabric-rectangle>
     </fabric-canvas>
     <b-container>
+      <b-row>
+        <b-col>borderRadius:</b-col>
+        <b-col>
+          <b-form-input
+            type="number"
+            v-model.number="borderRadius"
+          ></b-form-input>
+        </b-col>
+      </b-row>
       <b-row>
         <b-col>Grid Size:</b-col>
         <b-col>
@@ -62,7 +75,8 @@ export default {
     return {
       gridSize: 40,
       gridHeight: 400,
-      gridWidth: 400
+      gridWidth: 400,
+      borderRadius: 0
     };
   },
   methods: {}

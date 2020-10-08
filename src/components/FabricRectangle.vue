@@ -23,6 +23,14 @@ export default {
     fill: {
       type: String,
       default: "red"
+    },
+    rx: {
+      type: Number,
+      default: 0
+    },
+    ry: {
+      type: Number,
+      default: 0
     }
   },
   data() {

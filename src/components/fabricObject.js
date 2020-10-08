@@ -67,7 +67,9 @@ const REQUIRE_RENDER = [
   "fill",
   "stroke",
   "strokeWidth",
-  "strokeDashArray"
+  "strokeDashArray",
+  "rx",
+  "ry"
 ];
 
 //Monitor the fabric Object (item) and emit an update to allow .sync usage

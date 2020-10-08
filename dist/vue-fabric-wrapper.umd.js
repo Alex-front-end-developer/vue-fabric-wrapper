@@ -37328,7 +37328,7 @@ var OBJECT_EVENTS = ["added", "removed", "selected", "deselected", "modified", "
 
 var EMIT_PROPS = ["angle", "height", "left", "originX", "originY", "scaleX", "scaleY", "skewX", "skewY", "top", "width", "text"]; //Props that require a render once changed
 
-var REQUIRE_RENDER = ["angle", "height", "left", "originX", "originY", "opacity", "scaleX", "scaleY", "skewX", "skewY", "top", "width", "visible", "fontSize", "lineHeight", "charSpacing", "textAlign", "linethrough", "underline", "overline", "text", "textTransform", "fill", "stroke", "strokeWidth", "strokeDashArray"]; //Monitor the fabric Object (item) and emit an update to allow .sync usage
+var REQUIRE_RENDER = ["angle", "height", "left", "originX", "originY", "opacity", "scaleX", "scaleY", "skewX", "skewY", "top", "width", "visible", "fontSize", "lineHeight", "charSpacing", "textAlign", "linethrough", "underline", "overline", "text", "textTransform", "fill", "stroke", "strokeWidth", "strokeDashArray", "rx", "ry"]; //Monitor the fabric Object (item) and emit an update to allow .sync usage
 
 var watchEmitProp = function watchEmitProp(key, deep) {
   return {
@@ -38332,7 +38332,11 @@ function typeof_typeof(obj) {
   return typeof_typeof(obj);
 }
 // CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--12-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/FabricRectangle.vue?vue&type=script&lang=js&
+function FabricRectanglevue_type_script_lang_js_ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
+function FabricRectanglevue_type_script_lang_js_objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { FabricRectanglevue_type_script_lang_js_ownKeys(Object(source), true).forEach(function (key) { FabricRectanglevue_type_script_lang_js_defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { FabricRectanglevue_type_script_lang_js_ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function FabricRectanglevue_type_script_lang_js_defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 
 /* harmony default export */ var FabricRectanglevue_type_script_lang_js_ = ({
@@ -38358,6 +38362,14 @@ function typeof_typeof(obj) {
     fill: {
       type: String,
       default: "red"
+    },
+    rx: {
+      type: Number,
+      default: 0
+    },
+    ry: {
+      type: Number,
+      default: 0
     }
   },
   data: function data() {
@@ -38374,7 +38386,7 @@ function typeof_typeof(obj) {
       handler: function handler(newValue) {
         if (newValue) {
           //Parent is created
-          this.rect = new this.fabric.Rect(_objectSpread2({}, this.definedProps));
+          this.rect = new this.fabric.Rect(FabricRectanglevue_type_script_lang_js_objectSpread({}, this.definedProps));
 
           if (this.parentType == "group") {
             this.parentItem.addWithUpdate(this.rect);
