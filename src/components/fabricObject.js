@@ -125,6 +125,20 @@ export default {
     cornerSize: Number,
     cornerStrokeColor: String,
     cornerStyle: String,
+    _controlsVisibility: {
+      type: Object,
+      default: {
+        bl: true,
+        br: true,
+        mb: true,
+        ml: true,
+        mr: true,
+        mt: true,
+        mtr: true,
+        tl: true,
+        tr: true
+      }
+    },
     dirty: { type: Boolean, default: true },
     evented: { type: Boolean, default: true },
     excludeFromExport: { type: Boolean, default: false },

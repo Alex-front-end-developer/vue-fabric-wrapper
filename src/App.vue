@@ -51,6 +51,17 @@
         :textTransform="textTransform"
         :top="200"
         :left="200"
+        :_controlsVisibility="{
+          bl: true,
+          br: true,
+          mb: true,
+          ml: true,
+          mr: true,
+          mt: true,
+          mtr: true,
+          tl: true,
+          tr: true
+        }"
       ></fabric-text-box>
 
       <fabric-polyline :id="342102"></fabric-polyline>
