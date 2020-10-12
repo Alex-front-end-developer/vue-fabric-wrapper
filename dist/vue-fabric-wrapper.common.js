@@ -39755,6 +39755,13 @@ function FabricTextBoxvue_type_script_lang_js_defineProperty(obj, key, value) { 
       type: String,
       required: true
     },
+    textOriginal: {
+      type: String
+    },
+    textTransform: {
+      type: String,
+      default: "none"
+    },
     textAlign: {
       type: String,
       default: "left"
@@ -39796,6 +39803,15 @@ function FabricTextBoxvue_type_script_lang_js_defineProperty(obj, key, value) { 
         if (newValue) {
           //Parent is created
           this.textObj = new this.fabric.Textbox(this.text, FabricTextBoxvue_type_script_lang_js_objectSpread({}, this.definedProps));
+          var textTransform = {
+            none: this.text,
+            uppercase: this.text.toUpperCase(),
+            lowercase: this.text.toLowerCase(),
+            capitalize: this.text.split(" ").map(function (word) {
+              return word[0].toUpperCase() + word.slice(1);
+            }).join(" ")
+          };
+          this.textObj.text = textTransform[this.textTransform];
 
           if (this.parentType === "group") {
             if (this.parentItem.addWithoutUpdate) {
@@ -39812,6 +39828,34 @@ function FabricTextBoxvue_type_script_lang_js_defineProperty(obj, key, value) { 
         }
       },
       immediate: true
+    },
+    text: function text(_text) {
+      if (_text.length > this.textOriginal.length) {
+        this.$emit("update:textOriginal", this.textOriginal + _text.slice(this.textOriginal.length));
+      } else {
+        this.$emit("update:textOriginal", this.textOriginal.slice(0, _text.length));
+      }
+
+      var textTransform = {
+        none: _text,
+        uppercase: _text.toUpperCase(),
+        lowercase: _text.toLowerCase(),
+        capitalize: _text.split(" ").map(function (word) {
+          return word.match(/[A-Zа-я]/i) ? word[0].toUpperCase() + word.slice(1) : word;
+        }).join(" ")
+      };
+      this.$emit("update:text", textTransform[this.textTransform]);
+    },
+    textTransform: function textTransform() {
+      var textTransform = {
+        none: this.textOriginal,
+        uppercase: this.textOriginal.toUpperCase(),
+        lowercase: this.textOriginal.toLowerCase(),
+        capitalize: this.textOriginal.split(" ").map(function (word) {
+          return word.match(/[A-Zа-я]/i) ? word[0].toUpperCase() + word.slice(1) : word;
+        }).join(" ")
+      };
+      this.$emit("update:text", textTransform[this.textTransform]);
     }
   },
   methods: {},

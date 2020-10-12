@@ -32,6 +32,13 @@ export default {
       type: String,
       required: true
     },
+    textOriginal: {
+      type: String
+    },
+    textTransform: {
+      type: String,
+      default: "none"
+    },
     textAlign: {
       type: String,
       default: "left"
@@ -75,6 +82,16 @@ export default {
           this.textObj = new this.fabric.Textbox(this.text, {
             ...this.definedProps
           });
+          let textTransform = {
+            none: this.text,
+            uppercase: this.text.toUpperCase(),
+            lowercase: this.text.toLowerCase(),
+            capitalize: this.text
+              .split(" ")
+              .map(word => word[0].toUpperCase() + word.slice(1))
+              .join(" ")
+          };
+          this.textObj.text = textTransform[this.textTransform];
           if (this.parentType === "group") {
             if (this.parentItem.addWithoutUpdate) {
               this.parentItem.add(this.textObj);
@@ -89,6 +106,49 @@ export default {
         }
       },
       immediate: true
+    },
+    text(text) {
+      if (text.length > this.textOriginal.length) {
+        this.$emit(
+          "update:textOriginal",
+          this.textOriginal + text.slice(this.textOriginal.length)
+        );
+      } else {
+        this.$emit(
+          "update:textOriginal",
+          this.textOriginal.slice(0, text.length)
+        );
+      }
+      let textTransform = {
+        none: text,
+        uppercase: text.toUpperCase(),
+        lowercase: text.toLowerCase(),
+        capitalize: text
+          .split(" ")
+          .map(word =>
+            word.match(/[A-Zа-я]/i)
+              ? word[0].toUpperCase() + word.slice(1)
+              : word
+          )
+          .join(" ")
+      };
+      this.$emit("update:text", textTransform[this.textTransform]);
+    },
+    textTransform() {
+      let textTransform = {
+        none: this.textOriginal,
+        uppercase: this.textOriginal.toUpperCase(),
+        lowercase: this.textOriginal.toLowerCase(),
+        capitalize: this.textOriginal
+          .split(" ")
+          .map(word =>
+            word.match(/[A-Zа-я]/i)
+              ? word[0].toUpperCase() + word.slice(1)
+              : word
+          )
+          .join(" ")
+      };
+      this.$emit("update:text", textTransform[this.textTransform]);
     }
   },
   methods: {},
