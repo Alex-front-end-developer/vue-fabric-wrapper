@@ -36811,7 +36811,8 @@ var EMIT_PROPS = ["angle", "height", "left", "originX", "originY", "scaleX", "sc
 
 var REQUIRE_RENDER = ["angle", "height", "left", "originX", "originY", "opacity", "scaleX", "scaleY", "skewX", "skewY", "top", "width", "visible", // text props
 "fontSize", "lineHeight", "charSpacing", "textAlign", "linethrough", "underline", "overline", "text", "textTransform", "fill", "stroke", "strokeWidth", "strokeDashArray", // rect props
-"rx", "ry"]; //Monitor the fabric Object (item) and emit an update to allow .sync usage
+"rx", "ry"];
+var REQUIRE_SETCOORDS = ["left", "top", "width", "height", "skewX", "skewY", "padding", "angle", "strokeWidth"]; //Monitor the fabric Object (item) and emit an update to allow .sync usage
 
 var watchEmitProp = function watchEmitProp(key, deep) {
   return {
@@ -36846,6 +36847,10 @@ var watchProp = function watchProp(key, deep) {
       }
 
       this.item.set(key, newValue);
+
+      if (REQUIRE_SETCOORDS.includes(key)) {
+        this.item.setCoords();
+      }
 
       if (REQUIRE_RENDER.includes(key)) {
         this.canvas.renderAll();

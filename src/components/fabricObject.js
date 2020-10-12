@@ -75,6 +75,18 @@ const REQUIRE_RENDER = [
   "ry"
 ];
 
+const REQUIRE_SETCOORDS = [
+  "left",
+  "top",
+  "width",
+  "height",
+  "skewX",
+  "skewY",
+  "padding",
+  "angle",
+  "strokeWidth"
+];
+
 //Monitor the fabric Object (item) and emit an update to allow .sync usage
 const watchEmitProp = (key, deep) => ({
   handler(newValue) {
@@ -101,6 +113,9 @@ const watchProp = (key, deep) => ({
       return;
     }
     this.item.set(key, newValue);
+    if (REQUIRE_SETCOORDS.includes(key)) {
+      this.item.setCoords();
+    }
     if (REQUIRE_RENDER.includes(key)) {
       this.canvas.renderAll();
     }
