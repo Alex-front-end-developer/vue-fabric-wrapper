@@ -78,7 +78,6 @@ const REQUIRE_RENDER = [
 //Monitor the fabric Object (item) and emit an update to allow .sync usage
 const watchEmitProp = (key, deep) => ({
   handler(newValue) {
-    console.log('newValue', newValue);
     //If the prop caused the update there is no point emitting it back
     if (this.$props[key] === newValue) {
       return;

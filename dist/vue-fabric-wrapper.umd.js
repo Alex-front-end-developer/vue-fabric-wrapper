@@ -36825,8 +36825,7 @@ var REQUIRE_RENDER = ["angle", "height", "left", "originX", "originY", "opacity"
 var watchEmitProp = function watchEmitProp(key, deep) {
   return {
     handler: function handler(newValue) {
-      console.log('newValue', newValue); //If the prop caused the update there is no point emitting it back
-
+      //If the prop caused the update there is no point emitting it back
       if (this.$props[key] === newValue) {
         return;
       }
