@@ -46,9 +46,7 @@
       <fabric-text-box
         :id="'text'"
         :text.sync="text"
-        :textOriginal.sync="textOriginal"
         :linethrough="linethrough"
-        :textTransform="textTransform"
         :top="200"
         :left="200"
         :_controlsVisibility="{

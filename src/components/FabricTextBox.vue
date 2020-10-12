@@ -75,16 +75,6 @@ export default {
           this.textObj = new this.fabric.Textbox(this.text, {
             ...this.definedProps
           });
-          let textTransform = {
-            none: this.text,
-            uppercase: this.text.toUpperCase(),
-            lowercase: this.text.toLowerCase(),
-            capitalize: this.text
-              .split(" ")
-              .map(word => word[0].toUpperCase() + word.slice(1))
-              .join(" ")
-          };
-          this.textObj.text = textTransform[this.textTransform];
           if (this.parentType === "group") {
             if (this.parentItem.addWithoutUpdate) {
               this.parentItem.add(this.textObj);
