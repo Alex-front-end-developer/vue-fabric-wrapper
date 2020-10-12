@@ -37,6 +37,7 @@ const EMIT_PROPS = [
   "skewY",
   "top",
   "width",
+  // text props
   "text"
 ];
 
@@ -55,6 +56,7 @@ const REQUIRE_RENDER = [
   "top",
   "width",
   "visible",
+  // text props
   "fontSize",
   "lineHeight",
   "charSpacing",
@@ -68,6 +70,7 @@ const REQUIRE_RENDER = [
   "stroke",
   "strokeWidth",
   "strokeDashArray",
+  // rect props
   "rx",
   "ry"
 ];
@@ -75,6 +78,7 @@ const REQUIRE_RENDER = [
 //Monitor the fabric Object (item) and emit an update to allow .sync usage
 const watchEmitProp = (key, deep) => ({
   handler(newValue) {
+    console.log('newValue', newValue);
     //If the prop caused the update there is no point emitting it back
     if (this.$props[key] === newValue) {
       return;
@@ -126,18 +130,7 @@ export default {
     cornerStrokeColor: String,
     cornerStyle: String,
     _controlsVisibility: {
-      type: Object,
-      default: {
-        bl: true,
-        br: true,
-        mb: true,
-        ml: true,
-        mr: true,
-        mt: true,
-        mtr: true,
-        tl: true,
-        tr: true
-      }
+      type: Object
     },
     dirty: { type: Boolean, default: true },
     evented: { type: Boolean, default: true },
