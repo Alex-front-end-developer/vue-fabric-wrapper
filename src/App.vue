@@ -169,7 +169,7 @@ export default {
       canvas: null,
       newId: "hello",
       imageUrl: "../vue.png",
-      svgUrl: "../svg/pipe.svg",
+      svgUrl: "../svg/loaderColor.svg",
       svgLeft: 20,
       svgTop: 30,
       imgHeight: 1,
