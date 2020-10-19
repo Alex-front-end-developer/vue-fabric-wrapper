@@ -36988,6 +36988,7 @@ var watchProp = function watchProp(key, deep) {
       default: false
     },
     rotatingPointOffset: Number,
+    rotate: Number,
     scaleX: Number,
     scaleY: Number,
     selectable: {
