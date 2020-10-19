@@ -15,6 +15,7 @@
         :id="'rectGridTesting2'"
         :rx="borderRadius"
         :ry="borderRadius"
+        :rotate="rotate"
       ></fabric-rectangle>
     </fabric-canvas>
     <b-container>

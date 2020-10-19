@@ -182,7 +182,6 @@ export default {
     paintFirst: String,
     perPixelTargetFind: { type: Boolean, default: false },
     rotatingPointOffset: Number,
-    rotate: Number,
     scaleX: Number,
     scaleY: Number,
     selectable: { type: Boolean, default: true },
