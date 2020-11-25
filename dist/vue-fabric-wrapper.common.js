@@ -39812,9 +39812,9 @@ function FabricTextBoxvue_type_script_lang_js_defineProperty(obj, key, value) { 
             none: this.text,
             uppercase: this.text.toUpperCase(),
             lowercase: this.text.toLowerCase(),
-            capitalize: this.text.split(" ").map(function (word) {
-              return word[0].toUpperCase() + word.slice(1);
-            }).join(" ")
+            capitalize: this.text.replace(/^([a-z])|\s+([a-z])/g, function ($1) {
+              return $1.toUpperCase();
+            })
           };
           this.textObj.text = textTransform[this.textTransform];
 
@@ -39845,9 +39845,9 @@ function FabricTextBoxvue_type_script_lang_js_defineProperty(obj, key, value) { 
         none: _text,
         uppercase: _text.toUpperCase(),
         lowercase: _text.toLowerCase(),
-        capitalize: _text.split(" ").map(function (word) {
-          return word.match(/[A-Zа-я]/i) ? word[0].toUpperCase() + word.slice(1) : word;
-        }).join(" ")
+        capitalize: this.text.replace(/^([a-z])|\s+([a-z])/g, function ($1) {
+          return $1.toUpperCase();
+        })
       };
       this.$emit("update:text", textTransform[this.textTransform]);
     },
@@ -39856,9 +39856,9 @@ function FabricTextBoxvue_type_script_lang_js_defineProperty(obj, key, value) { 
         none: this.textOriginal,
         uppercase: this.textOriginal.toUpperCase(),
         lowercase: this.textOriginal.toLowerCase(),
-        capitalize: this.textOriginal.split(" ").map(function (word) {
-          return word.match(/[A-Zа-я]/i) ? word[0].toUpperCase() + word.slice(1) : word;
-        }).join(" ")
+        capitalize: this.text.replace(/^([a-z])|\s+([a-z])/g, function ($1) {
+          return $1.toUpperCase();
+        })
       };
       this.$emit("update:text", textTransform[this.textTransform]);
     }

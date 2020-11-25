@@ -304,11 +304,6 @@ export default {
       });
     }
   },
-  watch: {
-    angle(angle) {
-      console.log(this.canvas);
-    }
-  },
   beforeDestroy() {
     this.destroyEvents();
     if (this.parentType == "group") {
