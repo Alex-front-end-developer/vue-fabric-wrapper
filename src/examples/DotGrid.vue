@@ -15,10 +15,16 @@
         :id="'rectGridTesting2'"
         :rx="borderRadius"
         :ry="borderRadius"
-        :rotate="rotate"
+        :angle="rotate"
       ></fabric-rectangle>
     </fabric-canvas>
     <b-container>
+      <b-row>
+        <b-col>rotate:</b-col>
+        <b-col>
+          <b-form-input type="number" v-model.number="rotate"></b-form-input>
+        </b-col>
+      </b-row>
       <b-row>
         <b-col>borderRadius:</b-col>
         <b-col>
@@ -77,7 +83,8 @@ export default {
       gridSize: 40,
       gridHeight: 400,
       gridWidth: 400,
-      borderRadius: 0
+      borderRadius: 0,
+      rotate: 0
     };
   },
   methods: {}

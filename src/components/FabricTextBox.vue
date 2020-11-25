@@ -86,10 +86,9 @@ export default {
             none: this.text,
             uppercase: this.text.toUpperCase(),
             lowercase: this.text.toLowerCase(),
-            capitalize: this.text
-              .split(" ")
-              .map(word => word[0].toUpperCase() + word.slice(1))
-              .join(" ")
+            capitalize: this.text.replace(/^([a-z])|\s+([a-z])/g, $1 => {
+              return $1.toUpperCase();
+            })
           };
           this.textObj.text = textTransform[this.textTransform];
           if (this.parentType === "group") {
@@ -123,14 +122,9 @@ export default {
         none: text,
         uppercase: text.toUpperCase(),
         lowercase: text.toLowerCase(),
-        capitalize: text
-          .split(" ")
-          .map(word =>
-            word.match(/[A-Zа-я]/i)
-              ? word[0].toUpperCase() + word.slice(1)
-              : word
-          )
-          .join(" ")
+        capitalize: this.text.replace(/^([a-z])|\s+([a-z])/g, $1 => {
+          return $1.toUpperCase();
+        })
       };
       this.$emit("update:text", textTransform[this.textTransform]);
     },
@@ -139,14 +133,9 @@ export default {
         none: this.textOriginal,
         uppercase: this.textOriginal.toUpperCase(),
         lowercase: this.textOriginal.toLowerCase(),
-        capitalize: this.textOriginal
-          .split(" ")
-          .map(word =>
-            word.match(/[A-Zа-я]/i)
-              ? word[0].toUpperCase() + word.slice(1)
-              : word
-          )
-          .join(" ")
+        capitalize: this.text.replace(/^([a-z])|\s+([a-z])/g, $1 => {
+          return $1.toUpperCase();
+        })
       };
       this.$emit("update:text", textTransform[this.textTransform]);
     }
