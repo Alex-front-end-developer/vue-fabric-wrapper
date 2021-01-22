@@ -82,8 +82,10 @@ export default {
           this.textObj = new this.fabric.Textbox(this.text, {
             ...this.definedProps
           });
+          let currTextObj = this.textObj.toObject();
           this.textObj.toObject = () => {
             return {
+              ...currTextObj,
               ...this.definedProps
             };
           };

@@ -39819,9 +39819,10 @@ function FabricTextBoxvue_type_script_lang_js_defineProperty(obj, key, value) { 
         if (newValue) {
           //Parent is created
           this.textObj = new this.fabric.Textbox(this.text, FabricTextBoxvue_type_script_lang_js_objectSpread({}, this.definedProps));
+          var currTextObj = this.textObj.toObject();
 
           this.textObj.toObject = function () {
-            return FabricTextBoxvue_type_script_lang_js_objectSpread({}, _this.definedProps);
+            return FabricTextBoxvue_type_script_lang_js_objectSpread(FabricTextBoxvue_type_script_lang_js_objectSpread({}, currTextObj), _this.definedProps);
           };
 
           var textTransform = {
