@@ -82,6 +82,11 @@ export default {
           this.textObj = new this.fabric.Textbox(this.text, {
             ...this.definedProps
           });
+          this.textObj.toObject = () => {
+            return {
+              ...this.definedProps
+            };
+          };
           let textTransform = {
             none: this.text,
             uppercase: this.text.toUpperCase(),

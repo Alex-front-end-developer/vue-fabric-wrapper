@@ -17,6 +17,7 @@
       @drop="objDropped"
       @after-render="afterRender"
       @canvas-updated="canvasUpdated"
+      ref="canvas"
     >
       <fabric-background-image
         :id="345667"
