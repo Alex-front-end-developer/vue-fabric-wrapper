@@ -39814,9 +39814,16 @@ function FabricTextBoxvue_type_script_lang_js_defineProperty(obj, key, value) { 
   watch: {
     parentItem: {
       handler: function handler(newValue) {
+        var _this = this;
+
         if (newValue) {
           //Parent is created
           this.textObj = new this.fabric.Textbox(this.text, FabricTextBoxvue_type_script_lang_js_objectSpread({}, this.definedProps));
+
+          this.textObj.toObject = function () {
+            return FabricTextBoxvue_type_script_lang_js_objectSpread({}, _this.definedProps);
+          };
+
           var textTransform = {
             none: this.text,
             uppercase: this.text.toUpperCase(),
