@@ -108,6 +108,7 @@ export default {
   data() {
     return {
       canvas: null,
+      fabric: fabric,
       type: "canvas"
     };
   },
