@@ -99,7 +99,7 @@ export default {
     targetFindTolerance: { type: Number, required: false, default: 0 },
     // targets
     uniScaleKey: { type: String, required: false, default: "shiftKey" },
-    uniScaleTransform: { type: Boolean, required: false, default: false },
+    uniformScaling: { type: Boolean, required: false, default: false },
 
     backgroundColor: { type: String, required: false, default: "" },
     width: { type: Number, required: false, default: 600 },
