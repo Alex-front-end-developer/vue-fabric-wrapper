@@ -68,12 +68,6 @@
       :selectable="false"
     ></fabric-line>
     <slot></slot>
-    {{ verticalTop }}
-    {{ verticalMiddle }}
-    {{ verticalBottom }}
-    {{ horizontalLeft }}
-    {{ horizontalMiddle }}
-    {{ horizontalRight }}
   </div>
 </template>
 

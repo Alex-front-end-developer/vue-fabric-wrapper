@@ -10,7 +10,7 @@
 		"canvas",
 		"components"
 	],
-	"version": "0.3.86",
+	"version": "0.3.87",
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/bensladden/vue-fabric-wrapper.git"
@@ -48,7 +48,7 @@
 		"exports-loader": "0.7.0",
 		"node-sass": "4.13.1",
 		"prettier": "1.19.1",
-		"rimraf": "3.0.2",
+		"rimraf": "^3.0.2",
 		"sass-loader": "8.0.2",
 		"vue": "2.6.11",
 		"vue-template-compiler": "2.6.11",
