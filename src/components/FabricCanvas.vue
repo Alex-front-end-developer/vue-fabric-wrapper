@@ -9,7 +9,8 @@
       :y1="line.y1"
       :x2="line.x2"
       :y2="line.y2"
-      :stroke="'rgba(102,153,255,0.5)'"
+      :stroke="aligningGrid.strokeColor"
+      :strokeWidth="aligningGrid.strokeWidth"
       :selectable="false"
     ></fabric-line>
     <fabric-line
@@ -20,7 +21,8 @@
       :y1="line.y1"
       :x2="line.x2"
       :y2="line.y2"
-      :stroke="'rgba(102,153,255,0.5)'"
+      :stroke="aligningGrid.strokeColor"
+      :strokeWidth="aligningGrid.strokeWidth"
       :selectable="false"
     ></fabric-line>
     <fabric-line
@@ -31,7 +33,8 @@
       :y1="line.y1"
       :x2="line.x2"
       :y2="line.y2"
-      :stroke="'rgba(102,153,255,0.5)'"
+      :stroke="aligningGrid.strokeColor"
+      :strokeWidth="aligningGrid.strokeWidth"
       :selectable="false"
     ></fabric-line>
     <fabric-line
@@ -42,7 +45,8 @@
       :y1="line.y1"
       :x2="line.x2"
       :y2="line.y2"
-      :stroke="'rgba(102,153,255,0.5)'"
+      :stroke="aligningGrid.strokeColor"
+      :strokeWidth="aligningGrid.strokeWidth"
       :selectable="false"
     ></fabric-line>
     <fabric-line
@@ -53,7 +57,8 @@
       :y1="line.y1"
       :x2="line.x2"
       :y2="line.y2"
-      :stroke="'rgba(102,153,255,0.5)'"
+      :stroke="aligningGrid.strokeColor"
+      :strokeWidth="aligningGrid.strokeWidth"
       :selectable="false"
     ></fabric-line>
     <fabric-line
@@ -64,7 +69,8 @@
       :y1="line.y1"
       :x2="line.x2"
       :y2="line.y2"
-      :stroke="'rgba(102,153,255,0.5)'"
+      :stroke="aligningGrid.strokeColor"
+      :strokeWidth="aligningGrid.strokeWidth"
       :selectable="false"
     ></fabric-line>
     <slot></slot>
@@ -123,7 +129,16 @@ export default {
   mixins: [fabricStaticCanvas],
   props: {
     id: { type: String, required: false, default: "c" },
-    aligningGrid: { type: Boolean, default: true },
+    aligningGrid: {
+      type: Object,
+      default: () => {
+        return {
+          visible: true,
+          strokeColor: "rgba(102,153,255,0.7)",
+          strokeWidth: 1
+        };
+      }
+    },
     altActionKey: { type: String, required: false, default: "shiftKey" },
     // altSelectionKey,
     centeredKey: { type: String, required: false, default: "altKey" },
