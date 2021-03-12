@@ -253,7 +253,7 @@ export default {
       }
     },
     checkSnap(e) {
-      if (!this.aligningGrid) return;
+      if (!this.aligningGrid.visible) return;
       this.objectMoving = e.target;
 
       this.createLine(
