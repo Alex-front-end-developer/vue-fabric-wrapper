@@ -1,11 +1,85 @@
 <template>
   <div>
     <canvas :id="id"></canvas>
+    <fabric-line
+      v-for="(line, i) in verticalTop"
+      :key="'verticalTop' + i"
+      :id="'verticalTop' + i"
+      :x1="line.x1"
+      :y1="line.y1"
+      :x2="line.x2"
+      :y2="line.y2"
+      :stroke="'rgba(102,153,255,0.5)'"
+      :selectable="false"
+    ></fabric-line>
+    <fabric-line
+      v-for="(line, i) in verticalMiddle"
+      :key="'verticalMiddle' + i"
+      :id="'verticalMiddle' + i"
+      :x1="line.x1"
+      :y1="line.y1"
+      :x2="line.x2"
+      :y2="line.y2"
+      :stroke="'rgba(102,153,255,0.5)'"
+      :selectable="false"
+    ></fabric-line>
+    <fabric-line
+      v-for="(line, i) in verticalBottom"
+      :key="'verticalBottom' + i"
+      :id="'verticalBottom' + i"
+      :x1="line.x1"
+      :y1="line.y1"
+      :x2="line.x2"
+      :y2="line.y2"
+      :stroke="'rgba(102,153,255,0.5)'"
+      :selectable="false"
+    ></fabric-line>
+    <fabric-line
+      v-for="(line, i) in horizontalLeft"
+      :key="'horizontalLeft' + i"
+      :id="'horizontalLeft' + i"
+      :x1="line.x1"
+      :y1="line.y1"
+      :x2="line.x2"
+      :y2="line.y2"
+      :stroke="'rgba(102,153,255,0.5)'"
+      :selectable="false"
+    ></fabric-line>
+    <fabric-line
+      v-for="(line, i) in horizontalMiddle"
+      :key="'horizontalMiddle' + i"
+      :id="'horizontalMiddle' + i"
+      :x1="line.x1"
+      :y1="line.y1"
+      :x2="line.x2"
+      :y2="line.y2"
+      :stroke="'rgba(102,153,255,0.5)'"
+      :selectable="false"
+    ></fabric-line>
+    <fabric-line
+      v-for="(line, i) in horizontalRight"
+      :key="'horizontalRight' + i"
+      :id="'horizontalRight' + i"
+      :x1="line.x1"
+      :y1="line.y1"
+      :x2="line.x2"
+      :y2="line.y2"
+      :stroke="'rgba(102,153,255,0.5)'"
+      :selectable="false"
+    ></fabric-line>
     <slot></slot>
+    {{ verticalTop }}
+    {{ verticalMiddle }}
+    {{ verticalBottom }}
+    {{ horizontalLeft }}
+    {{ horizontalMiddle }}
+    {{ horizontalRight }}
   </div>
 </template>
 
 <script>
+import FabricLine from "@/components/FabricLine";
+
 let canvasEvents = [
   //Static Canvas events
   "before:render",
@@ -49,9 +123,13 @@ import fabricStaticCanvas from "./fabricStaticCanvas";
 
 export default {
   name: "FabricCanvas",
+  components: {
+    FabricLine
+  },
   mixins: [fabricStaticCanvas],
   props: {
     id: { type: String, required: false, default: "c" },
+    aligningGrid: { type: Boolean, default: true },
     altActionKey: { type: String, required: false, default: "shiftKey" },
     // altSelectionKey,
     centeredKey: { type: String, required: false, default: "altKey" },
@@ -109,7 +187,16 @@ export default {
     return {
       canvas: null,
       fabric: fabric,
-      type: "canvas"
+      type: "canvas",
+      contactPointsVertical: new Map(),
+      contactPointsHorizontal: new Map(),
+      verticalTop: [],
+      verticalMiddle: [],
+      verticalBottom: [],
+      horizontalLeft: [],
+      horizontalMiddle: [],
+      horizontalRight: [],
+      objectMoving: null
     };
   },
   provide() {
@@ -120,12 +207,153 @@ export default {
     };
   },
   methods: {
+    clearLines() {
+      this.verticalTop = [];
+      this.verticalMiddle = [];
+      this.verticalBottom = [];
+      this.horizontalLeft = [];
+      this.horizontalMiddle = [];
+      this.horizontalRight = [];
+    },
     createEvents() {
       canvasEvents.forEach(event => {
         let vueEvent = event.split(":").join("-");
         this.canvas.on(event, e => {
           this.$emit(vueEvent, e);
         });
+      });
+    },
+    createLine(point, x1, y1, contactPoints, contactLines) {
+      let contactPoint = this[contactPoints].get(Math.round(point));
+      if (contactPoint) {
+        this[contactLines] = [];
+        this.objectMoving.set({
+          left: Math.round(this.objectMoving.left),
+          top: Math.round(this.objectMoving.top)
+        });
+        contactPoint.forEach(line => {
+          this[contactLines].push({
+            x1: Math.round(x1),
+            y1: Math.round(y1),
+            x2: line.left,
+            y2: line.top
+          });
+        });
+      } else {
+        this[contactLines] = [];
+      }
+    },
+    checkSnap(e) {
+      if (!this.aligningGrid) return;
+      this.objectMoving = e.target;
+
+      this.createLine(
+        this.objectMoving.top,
+        this.objectMoving.left,
+        this.objectMoving.top,
+        "contactPointsVertical",
+        "verticalTop"
+      );
+      this.createLine(
+        this.objectMoving.top +
+          this.objectMoving.height * this.objectMoving.scaleY,
+        this.objectMoving.left,
+        this.objectMoving.top +
+          this.objectMoving.height * this.objectMoving.scaleY,
+        "contactPointsVertical",
+        "verticalMiddle"
+      );
+      this.createLine(
+        this.objectMoving.top +
+          (this.objectMoving.height * this.objectMoving.scaleY) / 2,
+        this.objectMoving.left,
+        this.objectMoving.top +
+          (this.objectMoving.height * this.objectMoving.scaleY) / 2,
+        "contactPointsVertical",
+        "verticalBottom"
+      );
+
+      this.createLine(
+        this.objectMoving.left,
+        this.objectMoving.left,
+        this.objectMoving.top,
+        "contactPointsHorizontal",
+        "horizontalLeft"
+      );
+      this.createLine(
+        this.objectMoving.left + this.objectMoving.width,
+        this.objectMoving.left + this.objectMoving.width,
+        this.objectMoving.top,
+        "contactPointsHorizontal",
+        "horizontalMiddle"
+      );
+      this.createLine(
+        this.objectMoving.left +
+          (this.objectMoving.width * this.objectMoving.scaleX) / 2,
+        this.objectMoving.left +
+          (this.objectMoving.width * this.objectMoving.scaleX) / 2,
+        this.objectMoving.top,
+        "contactPointsHorizontal",
+        "horizontalRight"
+      );
+    },
+    finishMove() {
+      this.objectMoving = null;
+      this.clearLines();
+    },
+    hashTable(getSet, left, top, contactPoints) {
+      if (!this[contactPoints].get(getSet)) {
+        this[contactPoints].set(Math.round(getSet), [
+          {
+            left: left,
+            top: top
+          }
+        ]);
+      } else {
+        this[contactPoints].get(getSet).push({
+          left: left,
+          top: top
+        });
+      }
+    },
+    createContactPoints(e) {
+      this.contactPointsVertical.clear();
+      this.contactPointsHorizontal.clear();
+      this.canvas.getObjects().forEach(obj => {
+        if (obj !== e.target) {
+          this.hashTable(
+            obj.left,
+            obj.left,
+            obj.top,
+            "contactPointsHorizontal"
+          );
+          this.hashTable(
+            obj.left + obj.width * obj.scaleX,
+            obj.left + obj.width * obj.scaleX,
+            obj.top,
+            "contactPointsHorizontal"
+          );
+          this.hashTable(
+            obj.left + (obj.width * obj.scaleX) / 2,
+            obj.left + (obj.width * obj.scaleX) / 2,
+            obj.top,
+            "contactPointsHorizontal"
+          );
+
+          this.hashTable(obj.top, obj.left, obj.top, "contactPointsVertical");
+          this.hashTable(
+            obj.top + obj.height * obj.scaleY,
+            obj.left,
+            obj.top + obj.height * obj.scaleY,
+            "contactPointsVertical"
+          );
+          this.hashTable(
+            obj.top + (obj.height * obj.scaleY) / 2,
+            obj.left,
+            obj.top + (obj.height * obj.scaleY) / 2,
+            "contactPointsVertical"
+          );
+        }
       });
     }
   },
@@ -138,6 +366,15 @@ export default {
         }
       });
       return obj;
+    },
+    canvasExists() {
+      if (typeof this.canvas === typeof undefined) {
+        return false;
+      }
+      if (this.canvas == null) {
+        return false;
+      }
+      return true;
     }
   },
   mounted() {
@@ -145,6 +382,8 @@ export default {
       ...this.definedProps
     });
     this.createEvents();
+    this.canvas.on("selection:created", e => this.createContactPoints(e));
+    this.canvas.on("selection:updated", e => this.createContactPoints(e));
   },
   beforeDestroy() {
     canvasEvents.forEach(event => {
@@ -179,6 +418,19 @@ export default {
       this.canvas.setOverlayColor(newValue, () => {
         this.canvas.renderAll();
       });
+    },
+    canvasExists: {
+      handler(newValue) {
+        if (newValue) {
+          this.canvas.on("object:moved", () => {
+            this.finishMove();
+          });
+          this.canvas.on("object:moving", e => {
+            this.checkSnap(e);
+          });
+        }
+      },
+      immediate: true
     }
   }
 };

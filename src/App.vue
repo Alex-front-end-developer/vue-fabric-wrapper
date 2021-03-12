@@ -19,54 +19,10 @@
       @canvas-updated="canvasUpdated"
       ref="canvas"
     >
-      <fabric-background-image
-        :id="345667"
-        :scaleX="400 / imgWidth"
-        :scaleY="400 / imgHeight"
-        @image-loaded="imageLoaded"
-      ></fabric-background-image>
-      <fabric-group :id="3421">
-        <fabric-polygon :id="342101">
-          <fabric-gradient
-            :x1="0"
-            :x2="0"
-            :y1="0"
-            :y2="1"
-            :gradientUnits="'percentage'"
-            :colorStops="{ 0: '#000', 1: '#fff' }"
-          ></fabric-gradient>
-          <fabric-shadow
-            :offsetX="25"
-            :offsetY="25"
-            :color="'rgba(0,0,0,.3)'"
-          ></fabric-shadow>
-        </fabric-polygon>
-        <fabric-text :id="342104" :text="'hello stick man'"></fabric-text>
-      </fabric-group>
+      <fabric-rectangle :id="'rectGridTesting2'"></fabric-rectangle>
 
-      <fabric-text-box
-        :id="'text'"
-        :text.sync="text"
-        :textOriginal.sync="textOriginal"
-        :linethrough="linethrough"
-        :textTransform="textTransform"
-        :top="200"
-        :left="200"
-        :_controlsVisibility="{
-          bl: true,
-          br: true,
-          mb: true,
-          ml: true,
-          mr: true,
-          mt: true,
-          mtr: true,
-          tl: true,
-          tr: true
-        }"
-      ></fabric-text-box>
-
-      <fabric-polyline :id="342102"></fabric-polyline>
-      <fabric-svg-from-url :id="'ttyuud'"></fabric-svg-from-url>
+      <fabric-rectangle :id="'rectGridTesting1'"></fabric-rectangle>
+      <fabric-rectangle :id="'rectGridTesting3'"></fabric-rectangle>
     </fabric-canvas>
     {{ text }}
     {{ textOriginal }}
@@ -97,6 +53,54 @@
     <button @click="setText">image</button>
     {{ image }}
     <fabric-canvas :id="'overlay'" :height="400" :width="400">
+      <fabric-background-image
+        :id="345667"
+        :scaleX="400 / imgWidth"
+        :scaleY="400 / imgHeight"
+        @image-loaded="imageLoaded"
+      ></fabric-background-image>
+      <fabric-group :id="3421">
+        <fabric-polygon :id="342101">
+          <!--          <fabric-gradient
+            :x1="0"
+            :x2="0"
+            :y1="0"
+            :y2="1"
+            :gradientUnits="'percentage'"
+            :colorStops="{ 0: '#000', 1: '#fff' }"
+          ></fabric-gradient>
+          <fabric-shadow
+            :offsetX="25"
+            :offsetY="25"
+            :color="'rgba(0,0,0,.3)'"
+          ></fabric-shadow>-->
+        </fabric-polygon>
+        <fabric-text :id="342104" :text="'hello stick man'"></fabric-text>
+      </fabric-group>
+
+      <fabric-text-box
+        :id="'text'"
+        :text.sync="text"
+        :textOriginal.sync="textOriginal"
+        :linethrough="linethrough"
+        :textTransform="textTransform"
+        :top="200"
+        :left="200"
+        :_controlsVisibility="{
+          bl: true,
+          br: true,
+          mb: true,
+          ml: true,
+          mr: true,
+          mt: true,
+          mtr: true,
+          tl: true,
+          tr: true
+        }"
+      ></fabric-text-box>
+
+      <fabric-polyline :id="342102"></fabric-polyline>
+      <fabric-svg-from-url :id="'ttyuud'"></fabric-svg-from-url>
       <fabric-svg-from-url :id="'ttyuud' + newId"></fabric-svg-from-url>
       <fabric-overlay-image
         :id="3455667"
@@ -153,14 +157,14 @@ export default {
     FabricBackgroundImage,
     FabricOverlayImage,
     FabricCanvas,
-    FabricGradient,
+    /*FabricGradient,*/
     FabricGroup,
     FabricPolygon,
     FabricPolyline,
     FabricSvgFromUrl,
     FabricImageFromUrl,
     FabricText,
-    FabricShadow,
+    /*FabricShadow,*/
     FabricTextBox
   },
   data() {
@@ -195,18 +199,11 @@ export default {
       this.overImgHeight = img.height;
       this.overImgWidth = img.width;
     },
-    objDropped(e) {
-      // eslint-disable-next-line no-console
-      console.log(e);
-    },
+    objDropped(e) {},
     dragStart(e) {
-      // eslint-disable-next-line no-console
-      console.log(e);
       e.dataTransfer.setData("text/plain", "mmmmmeeeee");
     },
-    afterRender(e) {
-      console.log(e);
-    },
+    afterRender(e) {},
     canvasUpdated(c) {
       this.canvas = c;
     },
