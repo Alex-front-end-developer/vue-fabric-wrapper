@@ -38361,12 +38361,12 @@ var FabricBackgroundImage_component = normalizeComponent(
 )
 
 /* harmony default export */ var FabricBackgroundImage = (FabricBackgroundImage_component.exports);
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"3e91a02c-vue-loader-template"}!./node_modules/@vue/cli-service/node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/@vue/cli-service/node_modules/vue-loader/lib??vue-loader-options!./src/components/FabricCanvas.vue?vue&type=template&id=727f1ff4&
-var FabricCanvasvue_type_template_id_727f1ff4_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',[_c('canvas',{attrs:{"id":_vm.id}}),_vm._l((_vm.verticalTop),function(line,i){return _c('fabric-line',{key:'verticalTop' + i,attrs:{"id":'verticalTop' + i,"x1":line.x1,"y1":line.y1,"x2":line.x2,"y2":line.y2,"stroke":_vm.aligningGrid.strokeColor,"strokeWidth":_vm.aligningGrid.strokeWidth,"selectable":false}})}),_vm._l((_vm.verticalMiddle),function(line,i){return _c('fabric-line',{key:'verticalMiddle' + i,attrs:{"id":'verticalMiddle' + i,"x1":line.x1,"y1":line.y1,"x2":line.x2,"y2":line.y2,"stroke":_vm.aligningGrid.strokeColor,"strokeWidth":_vm.aligningGrid.strokeWidth,"selectable":false}})}),_vm._l((_vm.verticalBottom),function(line,i){return _c('fabric-line',{key:'verticalBottom' + i,attrs:{"id":'verticalBottom' + i,"x1":line.x1,"y1":line.y1,"x2":line.x2,"y2":line.y2,"stroke":_vm.aligningGrid.strokeColor,"strokeWidth":_vm.aligningGrid.strokeWidth,"selectable":false}})}),_vm._l((_vm.horizontalLeft),function(line,i){return _c('fabric-line',{key:'horizontalLeft' + i,attrs:{"id":'horizontalLeft' + i,"x1":line.x1,"y1":line.y1,"x2":line.x2,"y2":line.y2,"stroke":_vm.aligningGrid.strokeColor,"strokeWidth":_vm.aligningGrid.strokeWidth,"selectable":false}})}),_vm._l((_vm.horizontalMiddle),function(line,i){return _c('fabric-line',{key:'horizontalMiddle' + i,attrs:{"id":'horizontalMiddle' + i,"x1":line.x1,"y1":line.y1,"x2":line.x2,"y2":line.y2,"stroke":_vm.aligningGrid.strokeColor,"strokeWidth":_vm.aligningGrid.strokeWidth,"selectable":false}})}),_vm._l((_vm.horizontalRight),function(line,i){return _c('fabric-line',{key:'horizontalRight' + i,attrs:{"id":'horizontalRight' + i,"x1":line.x1,"y1":line.y1,"x2":line.x2,"y2":line.y2,"stroke":_vm.aligningGrid.strokeColor,"strokeWidth":_vm.aligningGrid.strokeWidth,"selectable":false}})}),_vm._t("default")],2)}
-var FabricCanvasvue_type_template_id_727f1ff4_staticRenderFns = []
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"3e91a02c-vue-loader-template"}!./node_modules/@vue/cli-service/node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/@vue/cli-service/node_modules/vue-loader/lib??vue-loader-options!./src/components/FabricCanvas.vue?vue&type=template&id=5a7b4f50&
+var FabricCanvasvue_type_template_id_5a7b4f50_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',[_c('canvas',{attrs:{"id":_vm.id}}),_vm._l((_vm.verticalTop),function(line,i){return _c('fabric-line',{key:'verticalTop' + i,attrs:{"id":'verticalTop' + i,"x1":line.x1,"y1":line.y1,"x2":line.x2,"y2":line.y2,"stroke":_vm.aligningGrid.strokeColor,"strokeWidth":_vm.aligningGrid.strokeWidth,"selectable":false}})}),_vm._l((_vm.verticalMiddle),function(line,i){return _c('fabric-line',{key:'verticalMiddle' + i,attrs:{"id":'verticalMiddle' + i,"x1":line.x1,"y1":line.y1,"x2":line.x2,"y2":line.y2,"stroke":_vm.aligningGrid.strokeColor,"strokeWidth":_vm.aligningGrid.strokeWidth,"selectable":false}})}),_vm._l((_vm.verticalBottom),function(line,i){return _c('fabric-line',{key:'verticalBottom' + i,attrs:{"id":'verticalBottom' + i,"x1":line.x1,"y1":line.y1,"x2":line.x2,"y2":line.y2,"stroke":_vm.aligningGrid.strokeColor,"strokeWidth":_vm.aligningGrid.strokeWidth,"selectable":false}})}),_vm._l((_vm.horizontalLeft),function(line,i){return _c('fabric-line',{key:'horizontalLeft' + i,attrs:{"id":'horizontalLeft' + i,"x1":line.x1,"y1":line.y1,"x2":line.x2,"y2":line.y2,"stroke":_vm.aligningGrid.strokeColor,"strokeWidth":_vm.aligningGrid.strokeWidth,"selectable":false}})}),_vm._l((_vm.horizontalMiddle),function(line,i){return _c('fabric-line',{key:'horizontalMiddle' + i,attrs:{"id":'horizontalMiddle' + i,"x1":line.x1,"y1":line.y1,"x2":line.x2,"y2":line.y2,"stroke":_vm.aligningGrid.strokeColor,"strokeWidth":_vm.aligningGrid.strokeWidth,"selectable":false}})}),_vm._l((_vm.horizontalRight),function(line,i){return _c('fabric-line',{key:'horizontalRight' + i,attrs:{"id":'horizontalRight' + i,"x1":line.x1,"y1":line.y1,"x2":line.x2,"y2":line.y2,"stroke":_vm.aligningGrid.strokeColor,"strokeWidth":_vm.aligningGrid.strokeWidth,"selectable":false}})}),_vm._t("default")],2)}
+var FabricCanvasvue_type_template_id_5a7b4f50_staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./src/components/FabricCanvas.vue?vue&type=template&id=727f1ff4&
+// CONCATENATED MODULE: ./src/components/FabricCanvas.vue?vue&type=template&id=5a7b4f50&
 
 // CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--12-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/@vue/cli-plugin-babel/node_modules/babel-loader/lib!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/@vue/cli-service/node_modules/vue-loader/lib??vue-loader-options!./src/components/FabricLine.vue?vue&type=script&lang=js&
 
@@ -38807,7 +38807,9 @@ var canvasEvents = [//Static Canvas events
       horizontalLeft: [],
       horizontalMiddle: [],
       horizontalRight: [],
-      objectMoving: null
+      objectMoving: null,
+      mousePointer: null,
+      sticky: {}
     };
   },
   provide: function provide() {
@@ -38862,6 +38864,23 @@ var canvasEvents = [//Static Canvas events
             y2: line.top
           });
         });
+
+        if (!this.sticky.left) {
+          this.sticky = {
+            left: Math.round(this.objectMoving.left),
+            x: this.mousePointer.x,
+            top: Math.round(this.objectMoving.top),
+            y: this.mousePointer.y
+          };
+        }
+        /*if (contactPoints === "contactPointsVertical" && !this.sticky.top) {
+          this.sticky = {
+            top: Math.round(this.objectMoving.top),
+            y: this.mousePointer.y
+          };
+          console.log(contactPoints, this.sticky);
+        }*/
+
       } else {
         this[contactLines] = [];
       }
@@ -38869,6 +38888,24 @@ var canvasEvents = [//Static Canvas events
     checkSnap: function checkSnap(e) {
       if (!this.aligningGrid.visible) return;
       this.objectMoving = e.target;
+      this.mousePointer = e.pointer;
+
+      if (this.sticky.top && Math.abs(e.pointer.y - this.sticky.y) < 15) {
+        this.objectMoving.set({
+          top: this.sticky.top
+        });
+      } else {
+        this.sticky = {};
+      }
+
+      if (this.sticky.left && Math.abs(e.pointer.x - this.sticky.x) < 15) {
+        this.objectMoving.set({
+          left: this.sticky.left
+        });
+      } else {
+        this.sticky = {};
+      }
+
       this.createLine(this.objectMoving.top, this.objectMoving.left, this.objectMoving.top, "contactPointsVertical", "verticalTop");
       this.createLine(this.objectMoving.top + this.objectMoving.height * this.objectMoving.scaleY, this.objectMoving.left, this.objectMoving.top + this.objectMoving.height * this.objectMoving.scaleY, "contactPointsVertical", "verticalMiddle");
       this.createLine(this.objectMoving.top + this.objectMoving.height * this.objectMoving.scaleY / 2, this.objectMoving.left, this.objectMoving.top + this.objectMoving.height * this.objectMoving.scaleY / 2, "contactPointsVertical", "verticalBottom");
@@ -39024,8 +39061,8 @@ var FabricCanvasvue_type_style_index_0_lang_css_ = __webpack_require__("6101");
 
 var FabricCanvas_component = normalizeComponent(
   components_FabricCanvasvue_type_script_lang_js_,
-  FabricCanvasvue_type_template_id_727f1ff4_render,
-  FabricCanvasvue_type_template_id_727f1ff4_staticRenderFns,
+  FabricCanvasvue_type_template_id_5a7b4f50_render,
+  FabricCanvasvue_type_template_id_5a7b4f50_staticRenderFns,
   false,
   null,
   null,

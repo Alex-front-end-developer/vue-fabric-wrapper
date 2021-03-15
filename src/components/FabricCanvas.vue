@@ -205,7 +205,9 @@ export default {
       horizontalLeft: [],
       horizontalMiddle: [],
       horizontalRight: [],
-      objectMoving: null
+      objectMoving: null,
+      mousePointer: null,
+      sticky: {}
     };
   },
   provide() {
@@ -248,6 +250,21 @@ export default {
             y2: line.top
           });
         });
+        if (!this.sticky.left) {
+          this.sticky = {
+            left: Math.round(this.objectMoving.left),
+            x: this.mousePointer.x,
+            top: Math.round(this.objectMoving.top),
+            y: this.mousePointer.y
+          };
+        }
+        /*if (contactPoints === "contactPointsVertical" && !this.sticky.top) {
+          this.sticky = {
+            top: Math.round(this.objectMoving.top),
+            y: this.mousePointer.y
+          };
+          console.log(contactPoints, this.sticky);
+        }*/
       } else {
         this[contactLines] = [];
       }
@@ -255,6 +272,23 @@ export default {
     checkSnap(e) {
       if (!this.aligningGrid.visible) return;
       this.objectMoving = e.target;
+      this.mousePointer = e.pointer;
+
+      if (this.sticky.top && Math.abs(e.pointer.y - this.sticky.y) < 15) {
+        this.objectMoving.set({
+          top: this.sticky.top
+        });
+      } else {
+        this.sticky = {};
+      }
+
+      if (this.sticky.left && Math.abs(e.pointer.x - this.sticky.x) < 15) {
+        this.objectMoving.set({
+          left: this.sticky.left
+        });
+      } else {
+        this.sticky = {};
+      }
 
       this.createLine(
         this.objectMoving.top,
